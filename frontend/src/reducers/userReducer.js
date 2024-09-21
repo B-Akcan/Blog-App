@@ -28,7 +28,7 @@ export const login = (username, password) => {
       userService.setToken(user.token)
       window.localStorage.setItem("loggedBlogAppUser", JSON.stringify(user))
     } catch {
-      dispatch(setNotificationAndClearWithTimeout("Wrong username or password", 5))
+      dispatch(setNotificationAndClearWithTimeout("Wrong username or password", "error", 5))
     }
   }
 }

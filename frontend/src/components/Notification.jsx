@@ -4,11 +4,11 @@ import { useSelector } from "react-redux"
 const Notification = () => {
   const notification = useSelector(state => state.notification)
 
-  if (notification)
+  if (notification.text)
   {
     return (
       <div style={{ textAlign: "center", marginBottom: 15 }}>
-        <Alert severity="success">{notification}</Alert>
+        <Alert severity={notification.type}>{notification}</Alert>
       </div>
     )
   }

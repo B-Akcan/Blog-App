@@ -8,16 +8,16 @@ const notificationSlice = createSlice({
       return action.payload
     },
     clearNotification(state, action) {
-      return ""
+      return { text: "", type: "success" }
     }
   }
 })
 
 export const { setNotification, clearNotification } = notificationSlice.actions
 
-export const setNotificationAndClearWithTimeout = (notification, seconds) => {
+export const setNotificationAndClearWithTimeout = (notification, type="success", seconds) => {
   return async dispatch => {
-    dispatch(setNotification(notification))
+    dispatch(setNotification({ notification, type }))
     setTimeout(() => {
       dispatch(clearNotification())
     }, seconds * 1000)
