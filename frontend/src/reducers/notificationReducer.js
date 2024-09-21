@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit"
 
 const notificationSlice = createSlice({
   name: "notification",
@@ -15,7 +15,7 @@ const notificationSlice = createSlice({
 
 export const { setNotification, clearNotification } = notificationSlice.actions
 
-export const setNotificationAndClearWithTimeout = (notification, type="success", seconds) => {
+export const setNotificationAndClearWithTimeout = (notification, type, seconds) => {
   return async dispatch => {
     dispatch(setNotification({ notification, type }))
     setTimeout(() => {

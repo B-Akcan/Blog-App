@@ -22,7 +22,7 @@ const RegisterForm = () => {
     }
 
     const createdUser = await userService.create(newUser)
-    dispatch(setNotificationAndClearWithTimeout(`User "${createdUser.name}" was created`, 5))
+    dispatch(setNotificationAndClearWithTimeout(`User "${createdUser.name}" was created`, "success", 5))
 
     setUsername("")
     setPassword("")

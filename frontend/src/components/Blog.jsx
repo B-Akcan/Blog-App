@@ -18,12 +18,12 @@ const Blog = ({ blog }) => {
     newBlog.likes++
 
     dispatch(updateBlog(newBlog))
-    dispatch(setNotificationAndClearWithTimeout(`Blog "${newBlog.title}" was liked`, 5))
+    dispatch(setNotificationAndClearWithTimeout(`Blog "${newBlog.title}" was liked`, "success", 5))
   }
 
   const handleDeleteBlog = (blog) => {
     dispatch(deleteBlog(blog.id))
-    dispatch(setNotificationAndClearWithTimeout(`Blog "${blog.title}" was deleted`, 5))
+    dispatch(setNotificationAndClearWithTimeout(`Blog "${blog.title}" was deleted`, "success", 5))
     navigate("/")
   }
 
@@ -32,7 +32,7 @@ const Blog = ({ blog }) => {
 
     if (comment === "")
     {
-      dispatch(setNotificationAndClearWithTimeout("Please enter a proper comment!", 5))
+      dispatch(setNotificationAndClearWithTimeout("Please enter a proper comment!", "error", 5))
       return
     }
 
@@ -42,7 +42,7 @@ const Blog = ({ blog }) => {
     }
 
     dispatch(updateBlog(commentedBlog))
-    dispatch(setNotificationAndClearWithTimeout(`Added a comment to blog "${commentedBlog.title}"`, 5))
+    dispatch(setNotificationAndClearWithTimeout(`Added a comment to blog "${commentedBlog.title}"`, "success", 5))
 
     setComment("")
   }

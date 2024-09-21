@@ -25,7 +25,7 @@ const NewBlog = () => {
     togglableRef.current.toggleVisibility()
 
     dispatch(newBlog(blog))
-    dispatch(setNotificationAndClearWithTimeout(`A new blog "${blog.title}" by "${blog.author}" was added`, 5))
+    dispatch(setNotificationAndClearWithTimeout(`A new blog "${blog.title}" by "${blog.author}" was added`, "success", 5))
 
     setTitle("")
     setAuthor("")
