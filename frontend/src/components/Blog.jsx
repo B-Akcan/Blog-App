@@ -57,7 +57,7 @@ const Blog = ({ blog }) => {
       <Paper elevation={5} style={{ marginBottom: 30, paddingLeft: 15, paddingRight: 15, paddingTop: 1, paddingBottom: 15 }}>
         <h3>About</h3>
         <div style={{ marginBottom: 5 }}>
-          <Link href={`//${blog.url}`} rel="external" className="contentLink">{blog.url}</Link>
+          <Link href={`https://${blog.url}`} rel="external" className="contentLink">{blog.url}</Link>
         </div>
         <div style={{ marginBottom: 5 }}>
           <span data-testid="likes" style={{ marginRight: 10, marginBottom: 10 }}>{blog.likes} likes</span>
