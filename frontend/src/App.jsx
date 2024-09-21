@@ -24,7 +24,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(initializeBlogs())
-  }, [blogs])
+  }, [])
 
   useEffect(() => {
     dispatch(getLoggedInUser())
@@ -34,7 +34,7 @@ const App = () => {
     userService
       .getAll()
       .then(users => setUsers(users))
-  }, [users])
+  }, [])
 
   const userMatch = useMatch("/users/:id")
   const user = userMatch ? users.find(user => user.id === userMatch.params.id) : null
