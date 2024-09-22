@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom"
 import { TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from "@mui/material"
+import compareBlogCount from "../utils/compareBlogCount"
 
 const Users = ({ users }) => {
+  users = users.sort(compareBlogCount)
 
   return (
     <TableContainer component={Paper} elevation={10} sx={{ margin: "auto" }}>

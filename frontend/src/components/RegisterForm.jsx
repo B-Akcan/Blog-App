@@ -35,7 +35,7 @@ const RegisterForm = () => {
     <Paper elevation={10} style={{ textAlign: "center", paddingTop: 5, paddingBottom: 15 }}>
       <h1>Create an account</h1>
       <form onSubmit={handleRegister}>
-        <div style={{ paddingBottom: 5 }}>
+        <div style={{ paddingBottom: 10 }}>
           <TextField
             data-testid="username"
             value={username}
@@ -44,7 +44,7 @@ const RegisterForm = () => {
             variant="outlined"
           />
         </div>
-        <div style={{ paddingBottom: 5 }}>
+        <div style={{ paddingBottom: 10 }}>
           <TextField
             data-testid="password"
             type="password"

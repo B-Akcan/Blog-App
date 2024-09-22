@@ -3,6 +3,7 @@ const User = require("../models/user")
 require("express-async-errors")
 const bcrypt = require("bcrypt")
 const { tokenExtractor, userExtractor } = require("../utils/middleware")
+const Blog = require("../models/blog")
 
 usersRouter.post("/", async (request, response) => {
   const body = request.body
@@ -24,7 +25,7 @@ usersRouter.post("/", async (request, response) => {
 })
 
 usersRouter.get("/", async (request, response) => {
-  const users = await User.find({}).populate("blogs", { url: 1, title: 1, author: 1 })
+  const users = await User.find({}).populate("blogs", { title: 1, likes: 1 })
   return response.status(200).json(users)
 })
 
@@ -36,7 +37,13 @@ usersRouter.delete("/:id", async (request, response) => {
   if (user.id !== userToBeDeleted.id)
     return response.status(401).json({error: "You are not authorized to delete this user"})
 
+  for (let i=0; i<user.blogs.length; i++)
+  {
+    await Blog.findByIdAndDelete(user.blogs[i].toString())
+  }
+  
   await User.findByIdAndDelete(request.params.id)
+  
   return response.status(204).end()
 })
 

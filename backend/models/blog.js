@@ -5,10 +5,13 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  author: String,
-  url: {
+  content: {
     type: String,
     required: true
+  },
+  creationDate: {
+    type: Date,
+    default: Date.now()
   },
   likes: {
     type: Number,
@@ -18,7 +21,7 @@ const blogSchema = new mongoose.Schema({
     type: [String],
     default: []
   },
-  userId: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   }

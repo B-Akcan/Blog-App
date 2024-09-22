@@ -21,7 +21,7 @@ const LoginForm = () => {
     <Paper elevation={10} style={{ textAlign: "center", paddingTop: 5, paddingBottom: 15 }}>
       <h1>Sign into your account</h1>
       <form onSubmit={handleLogin}>
-        <div style={{ paddingBottom: 5 }}>
+        <div style={{ paddingBottom: 10 }}>
           <TextField
             data-testid="username"
             variant="outlined"

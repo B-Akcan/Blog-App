@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { Paper } from "@mui/material"
+import dateExtractor from "../utils/dateExtractor"
 
 const Blogs = () => {
   const blogs = useSelector(state => state.blogs)
@@ -13,7 +14,9 @@ const Blogs = () => {
           <Paper key={blog.id} elevation={5} style={{ margin: 10, padding: 10 }}>
             <Link to={`/blogs/${blog.id}`} className="contentLink">{blog.title}</Link>
             <br/>
-            by {blog.author}
+            by {blog.user.name}
+            <br/>
+            on {dateExtractor(blog.creationDate)}
           </Paper>
         ))}
       </Paper>

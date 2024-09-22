@@ -6,8 +6,8 @@ const Togglable = forwardRef((props, refs) => {
   const [visible, setVisible] = useState(false)
 
   const toggleVisibility = () => setVisible(!visible)
-  const hiddenStyle = { display: visible ? "none" : "", textAlign: "center", padding: 5 }
-  const shownStyle = { display: visible ? "" : "none", paddingLeft: 15 }
+  const hiddenStyle = { display: visible ? "none" : "", textAlign: "center", marginTop: 10 }
+  const shownStyle = { display: visible ? "" : "none" }
 
   useImperativeHandle(refs, () => {
     return { toggleVisibility }
@@ -20,7 +20,7 @@ const Togglable = forwardRef((props, refs) => {
       </div>
       <div style={shownStyle}>
         {props.children}
-        <div style={{ paddingTop: 5, paddingBottom: 10 }}>
+        <div style={{ paddingTop: 5 }}>
           <Button onClick={toggleVisibility} variant="outlined">Cancel</Button>
         </div>
       </div>
