@@ -22,13 +22,17 @@ const RegisterForm = () => {
     }
 
     const createdUser = await userService.create(newUser)
-    dispatch(setNotificationAndClearWithTimeout(`User "${createdUser.name}" was created`, "success", 5))
+    if (createdUser.error)
+      dispatch(setNotificationAndClearWithTimeout(`Username "${username}" already exists`, "error", 5))
+    else
+    {
+      dispatch(setNotificationAndClearWithTimeout(`User "${createdUser.name}" was created`, "success", 5))
+      navigate("/")
+    }
 
     setUsername("")
     setPassword("")
     setName("")
-
-    navigate("/")
   }
 
   return (

@@ -8,6 +8,10 @@ const Blog = require("../models/blog")
 usersRouter.post("/", async (request, response) => {
   const body = request.body
 
+  const userAlreadyExists = await User.find({ username: body.username })
+  if (userAlreadyExists.length === 1)
+    return response.status(400).json({ error: "this user already exists" })
+
   if (body.password === undefined || body.password.length < 3)
     return response.status(400).json({ error: "invalid password" })
 

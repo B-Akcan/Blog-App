@@ -14,7 +14,9 @@ const getAll = async () => {
 }
 
 const create = async (user) => {
-  const response = await axios.post(baseUrl, user)
+  const response = await axios
+    .post(baseUrl, user)
+    .catch(error => error.response)
   return response.data
 }
 
